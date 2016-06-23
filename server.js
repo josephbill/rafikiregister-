@@ -1,3 +1,4 @@
+
 var express = require ('express');
 var app = express();
 var mongoose = require ('mongoose');
@@ -16,9 +17,25 @@ var Schema = mongoose.Schema;
 
 var contactlistSchema = new Schema({
     name: String,
-    email: String,
-    number: String
+    adm_number: Number,
+    school: String,
+    marks: Number ,
+    Amount: Number
+ 
+
+
+    
+
 }, { versionKey: false, collection: 'contactlist'});
+
+
+
+
+
+
+
+
+
 
 var Contact = mongoose.model('Contact', contactlistSchema);
 
@@ -62,7 +79,7 @@ app.get('/contactlist/:id', function(req, res){
 
 	Contact.findById(id, function(err, data) {
     	if (err){
-    		res.send(err)
+    		res.send(err);
     	} else {
     		res.json(data);
     	}
@@ -75,8 +92,12 @@ app.put('/contactlist/:id', function(req, res) {
 
 	Contact.findByIdAndUpdate(id, 
 		{ $set: { name: req.body.name, 
-				  email: req.body.email, 
-				  number: req.body.number }
+			      adm_number: req.body.adm_number,
+			      school: req.body.school, 
+				  marks: req.body.marks,
+				  Amount: req.body.Amount
+
+				}
 				}, function (err, doc) {
   		if (err) {
   			res.send(err);

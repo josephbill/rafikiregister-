@@ -15,8 +15,10 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
+
+
            
-            <li role="presentation"><a href="#">About</a></li>
+            <li role="presentation"><a href="#about ">About</a></li>
             <li role="presentation"><a href="#">Contact</a></li>
           </ul>
         </nav>
@@ -24,8 +26,8 @@
       </div>
 
       <!-- jumbotron -->
-       <div class="jumbotron">
-        <h1>Rafiki Register </h1>
+       <div class="jumbotron" id="about">
+        <h1>Rafiki Register </h1> 
         <p class="lead" style="font-family: verdana;">Are you a school that has needy but bright kids who have just completed their final education but cannot fund their secondary school fees. Register them here for funding from our crowd funding platform rafiki </p>
         <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
       </div>
@@ -34,7 +36,7 @@
 	<div class="container" ng-controller="AppCtrl">
 		
 			<table class="table">
-				<thead>
+			<!-- 	<thead>
 					<tr>
 						<th>Name</th>
 						<th>Secondary School</th>
@@ -43,21 +45,25 @@
 						<th>Action</th>
 						<th>&nbsp</th>
 					</tr>
-				</thead>
+				</thead> -->
 				<tbody>
 					<tr>
-						<td><input class="form-control" ng-model="contact.name"></td>
-						<td><input class="form-control" ng-model="contact.secondaryschool"></td>
-						<td><input class="form-control" ng-model="contact.kcpemarks"></td>
-						<td><input class="form-contrsssol" ng-model="contact.amountneeded"></td>
+						<td><input class="form-control" ng-model="contact.name" placeholder="student name"></td>
+						<td><input class="form-control" ng-model="contact.school" placeholder="admitted secondary school"></td>
+						<td><input class="form-control"
+						ng-model="contact.admnumber" placeholder = "admission number"></td>
+						<td><input class="form-control" ng-model="contact.marks" placeholder="kcpe Marks|Grade "></td>
+						<td><input class="form-control" ng-model="contact.amount" placeholder="amount"></td>
 						<td><button class="btn btn-primary" ng-click="addContact()">Add Student</button></td>
+						<br> 
 						<td><button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button></td></td>
 					</tr>
 					<tr ng-repeat="contact in contactList">
 			          <td>{{contact.name}}</td>
-			          <td>{{contact.secondaryschool}}</td>
-			          <td>{{contact.kcpemarks}}</td>
-			          <td>{{contact.amountneeded}}</td>
+			          <td>{{contact.school}}</td>
+			          <td>{{contact.admnumber}}</td>
+			          <td>{{contact.marks}}</td>
+			          <td>{{contact.amount}}</td>
 			          <td><button class="btn btn-danger" ng-click="remove(contact._id)">Remove</button></td>
 			          <td><button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button></td>
 					</tr>
